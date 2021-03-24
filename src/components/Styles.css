@@ -1,0 +1,27 @@
+.container__custom{
+    padding: 30px !important;
+}
+.button__custom{
+    margin: 5px !important;
+}
+
+.buttons__list{
+    display: flex;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    
+}
+.listCourses__custom{
+    width: 100%;
+}
+.header__custom{
+    display: flex;
+}
+
+.header__custom > p {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 50px;
+    font-family: revert;
+    color: rgba(0,0,0,.5);
+}
