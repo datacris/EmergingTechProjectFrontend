@@ -90,8 +90,8 @@ function SignIn(props) {
       const res = await Axios.post(apiUrl, loginData);
       //process the response
       if (res.data.status === 'success') {
-        props.history.push('/signUp')
-        toast.success('Welcome ' + res.data.userEmail + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
+        props.history.push('/home')
+        toast.info('Welcome ' + res.data.userEmail + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
       }else{
         toast.error('Error: ' + res.data.message + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
       }

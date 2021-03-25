@@ -15,6 +15,7 @@ import AddIcon from '@material-ui/icons/Add';
 //ALERTS by tostify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Dashboard from './Dashboard';
 toast.configure();
 
 
@@ -80,6 +81,7 @@ function ListCourses(props) {
 
     return (
         <div>
+            < Dashboard title='List Courses'/>
             <div class="container container__custom">
 
                 <section class="jumbotron text-center bg-light p-5 rounded">

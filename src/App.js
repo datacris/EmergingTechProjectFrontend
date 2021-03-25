@@ -23,6 +23,7 @@ import StudentCourses from './components/StudentCourses';
 import Header from './components/Header';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import Dashboard from './components/Dashboard';
 //
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
     <div>
       <Router>
 
-        <Switch>         
+        <Switch>
 
           <Route path="/signUp">
             <SignUp />
@@ -40,9 +41,19 @@ function App() {
             <SignIn />
           </Route>
 
+          <Route path="/home">
+            <Home />
+          </Route>
+
+          <Route path="/listCourses">
+            <ListCourses />
+          </Route>
+
           <Route path="/">
             <SignIn />
           </Route>
+
+
 
 
         </Switch>

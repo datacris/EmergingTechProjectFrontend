@@ -25,3 +25,17 @@
     font-family: revert;
     color: rgba(0,0,0,.5);
 }
+.link__custom > a:link{
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+}
+.link__custom > a:visited{
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+}
+
+.user_header__custom{    
+    padding: 10px;
+    position: absolute;
+    right: 50px
+}
