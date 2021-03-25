@@ -21,12 +21,30 @@ import CreateStudent from './components/CreateStudent';
 import ShowStudent from './components/ShowStudent';
 import StudentCourses from './components/StudentCourses';
 import Header from './components/Header';
+import SignInSide from './components/SignInSide';
+import SignUp from './components/SignUp';
 //
 function App() {
 
   return (
     <div>
-        <Header />      
+      <Router>
+
+        <Switch>         
+
+          <Route path="/signUp">
+            <SignUp />
+          </Route>
+
+          <Route path="/">
+            <SignInSide />
+          </Route>
+
+
+        </Switch>
+        {/* <Header /> */}
+
+      </Router>
     </div>
 
   );
