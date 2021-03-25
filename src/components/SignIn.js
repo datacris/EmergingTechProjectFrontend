@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,13 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router';
+import Axios from 'axios';
+import { useStateValue } from '../providers/StateProvider';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 function Copyright() {
   return (
@@ -57,9 +64,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignInSide() {
+function SignIn(props) {
 
   const classes = useStyles();
+
+  //store input field data, email and password
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  const [{ endpoint_API }, dispatch] = useStateValue();
+  const apiUrl = endpoint_API + "/signIn";
+
+  //send email and password to the server to authenticate process
+  const authenticate = async () => {
+
+    try {
+      //make a get request to /authenticate end-point on the server
+      const loginData = {
+        auth: {
+          email,
+          password
+        }
+      }
+
+      const res = await Axios.post(apiUrl, loginData);
+      //process the response
+      if (res.data.status === 'success') {
+        props.history.push('/signUp')
+        toast.success('Welcome ' + res.data.userEmail + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
+      }else{
+        toast.error('Error: ' + res.data.message + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
+      }
+    } catch (e) { 
+      console.log(e);
+    }
+
+  };
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -84,6 +125,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={e => setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -95,16 +137,18 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={e => setPassword(e.target.value)}
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
+              onClick={authenticate}
             >
               Sign In
             </Button>
+
             <Grid container>
               <Grid item xs>
               </Grid>
@@ -114,12 +158,15 @@ export default function SignInSide() {
                 </Link>
               </Grid>
             </Grid>
+
             <Box mt={5}>
               <Copyright />
             </Box>
+
           </form>
         </div>
       </Grid>
     </Grid>
   );
 }
+export default withRouter(SignIn);

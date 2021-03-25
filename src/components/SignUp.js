@@ -20,6 +20,7 @@ import Axios from 'axios';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { withRouter } from 'react-router';
 toast.configure();
 
 
@@ -56,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignUp(props) {
+
+function SignUp(props) {
     const classes = useStyles();
 
     //var to set ad get radio button values
@@ -103,10 +105,12 @@ export default function SignUp(props) {
         console.log(apiUrl);
         Axios.post(apiUrl, data)
             .then((result) => {
-                toast.info('User Created Successfully!', { position: toast.POSITION.BOTTOM_RIGHT,  })
-                //props.history.push('/showStudent/' + result.data._id)
+                toast.info('User ' +  result.data.email  + ' created Successfully!', { position: toast.POSITION.BOTTOM_RIGHT, })
+                setTimeout(function(){ 
+                    props.history.push('/') 
+                }, 1000);
             }).catch((error) => {
-                toast.error('Error '+ error, { position: toast.POSITION.BOTTOM_RIGHT,  });
+                toast.error('Error ' + error, { position: toast.POSITION.BOTTOM_RIGHT, });
             })
     };
 
@@ -210,3 +214,6 @@ export default function SignUp(props) {
         </Container>
     );
 }
+
+
+export default withRouter(SignUp);

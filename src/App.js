@@ -21,7 +21,7 @@ import CreateStudent from './components/CreateStudent';
 import ShowStudent from './components/ShowStudent';
 import StudentCourses from './components/StudentCourses';
 import Header from './components/Header';
-import SignInSide from './components/SignInSide';
+import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 //
 function App() {
@@ -36,8 +36,12 @@ function App() {
             <SignUp />
           </Route>
 
+          <Route path="/signIn">
+            <SignIn />
+          </Route>
+
           <Route path="/">
-            <SignInSide />
+            <SignIn />
           </Route>
 
 
