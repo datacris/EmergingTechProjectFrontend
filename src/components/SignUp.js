@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -15,6 +15,12 @@ import Container from '@material-ui/core/Container';
 import { FormControl, FormLabel } from '@material-ui/core';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
+import { useStateValue } from '../providers/StateProvider';
+import Axios from 'axios';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 
 function Copyright() {
@@ -53,10 +59,55 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp(props) {
     const classes = useStyles();
 
+    //var to set ad get radio button values
     const [radioTypeValue, setRadioTypeValue] = React.useState('patient');
 
-    const handleChange = (event) => {
+    //Getting FRONT endpoint from reducer and stateProvider
+    const [{ endpoint_API }, dispatch] = useStateValue();
+    const apiUrl = endpoint_API + "/createUser";
+
+    //Initializing user to get and set values by using onchange event
+    const [user, setUser] = useState({
+        _id: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        userType: ''
+    });
+
+    //updates the user values when changing the values
+    const onChange = (event) => {
+        event.persist();
+        setUser({ ...user, [event.target.name]: event.target.value });
+    }
+
+    //updates the radio button values
+    const handleRadioTypeChange = (event) => {
         setRadioTypeValue(event.target.value);
+    };
+
+    //Creates the user by consuming backend services
+    const createUser = (event) => {
+        event.preventDefault();
+
+        const data = {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            password: user.password,
+            userType: radioTypeValue
+        };
+        console.log(data)
+
+        console.log(apiUrl);
+        Axios.post(apiUrl, data)
+            .then((result) => {
+                toast.info('User Created Successfully!', { position: toast.POSITION.BOTTOM_RIGHT,  })
+                //props.history.push('/showStudent/' + result.data._id)
+            }).catch((error) => {
+                toast.error('Error '+ error, { position: toast.POSITION.BOTTOM_RIGHT,  });
+            })
     };
 
     return (
@@ -69,7 +120,7 @@ export default function SignUp(props) {
                 <Typography component="h1" variant="h5">
                     Sign up
         </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} noValidate onSubmit={createUser}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
                             <TextField
@@ -81,6 +132,8 @@ export default function SignUp(props) {
                                 id="firstName"
                                 label="First Name"
                                 autoFocus
+                                value={user.firstName}
+                                onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12} sm={6}>
@@ -92,6 +145,8 @@ export default function SignUp(props) {
                                 label="Last Name"
                                 name="lastName"
                                 autoComplete="lname"
+                                value={user.lastName}
+                                onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -103,6 +158,8 @@ export default function SignUp(props) {
                                 label="Email Address"
                                 name="email"
                                 autoComplete="email"
+                                value={user.email}
+                                onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
@@ -115,12 +172,14 @@ export default function SignUp(props) {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
+                                value={user.password}
+                                onChange={onChange}
                             />
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">I am a ...</FormLabel>
-                                <RadioGroup aria-label="gender" name="gender1" value={radioTypeValue} onChange={handleChange}>
+                                <RadioGroup aria-label="gender" name="gender1" value={radioTypeValue} onChange={handleRadioTypeChange}>
                                     <FormControlLabel value="patient" control={<Radio />} label="Patient" />
                                     <FormControlLabel value="nurse" control={<Radio />} label="Nurse" />
                                 </RadioGroup>
@@ -135,12 +194,12 @@ export default function SignUp(props) {
                         className={classes.submit}
                     >
                         Sign Up
-          </Button>
+                    </Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="/" variant="body2">
                                 Already have an account? Sign in
-              </Link>
+                            </Link>
                         </Grid>
                     </Grid>
                 </form>
