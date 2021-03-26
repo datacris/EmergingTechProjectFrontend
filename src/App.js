@@ -27,6 +27,8 @@ import Dashboard from './components/Dashboard';
 import ListPatients from './components/ListPatients';
 import VitalSignsByPatient from './components/VitalSignsByPatient';
 import CreateVitalSigns from './components/CreateVitalSigns';
+import EmergencyAlertsByPatient from './components/EmergencyAlertsByPatient';
+import CreateEmergencyAlert from './components/CreateEmergencyAlert';
 //
 function App() {
 
@@ -60,7 +62,14 @@ function App() {
             <CreateVitalSigns />
           </Route >   
 
+          <Route path="/emergencyAlertsBypatient/:userId" >
+            <EmergencyAlertsByPatient />
+          </Route >
 
+          <Route path="/registerEmergencyAlert/:userId" >
+            <CreateEmergencyAlert />
+          </Route >
+                    
 
           <Route path="/">
             <SignIn />

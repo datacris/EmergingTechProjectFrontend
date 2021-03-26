@@ -45,7 +45,7 @@ function Dashboard(props) {
   const [userRole, setUserRole] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userId, setUserId] = useState('');
-  
+
 
 
   //Reads the cookie to get user info
@@ -85,7 +85,7 @@ function Dashboard(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar position="fixed" className={classes.appBar} >
         <Toolbar className='toolbar__custom'>
           <Typography variant="h5" noWrap>
             {props.title}
@@ -176,22 +176,26 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
-                <Link to='/listCourses'>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <AddAlertIcon fontSize="large" color={props.title === 'List Courses' ? 'secondary' : 'primary'} />
-                    </ListItemIcon>
-                    <ListItemText primary="Emergency alerts" />
-                  </ListItem>
-                </Link>
 
                 <ListItem button
-                          onClick={() => { 
-                            props.history.push({
-                                pathname: '/vitalSignsBypatient/' + userId
-                            });
-                        }}
-               >
+                  onClick={() => {
+                    props.history.push({
+                      pathname: '/emergencyAlertsBypatient/' + userId
+                    });
+                  }}  >
+                  <ListItemIcon>
+                    <AddAlertIcon fontSize="large" color={props.title === 'Emergency Alerts' ? 'secondary' : 'primary'} />
+                  </ListItemIcon>
+                  <ListItemText primary="Emergency alerts" />
+                </ListItem>
+
+
+                <ListItem button
+                  onClick={() => {
+                    props.history.push({
+                      pathname: '/vitalSignsBypatient/' + userId
+                    });
+                  }}  >
                   <ListItemIcon>
                     <LocalHospitalIcon fontSize="large" color={props.title === 'Vital Signs' ? 'secondary' : 'primary'} />
                   </ListItemIcon>
