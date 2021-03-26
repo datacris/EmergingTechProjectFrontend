@@ -21,7 +21,6 @@ function ListPatients(props) {
         setShowLoading(true);
         const fetchData = async () => {
             const result = await Axios(apiUrl);
-            console.log('results from patient => ', result.data);
 
             setPatients((result.data));
             setShowLoading(false);
@@ -31,11 +30,11 @@ function ListPatients(props) {
     }, []);
 
 
-    //Shows course details given an ID
-    const showDetail = (id) => {
-        // props.history.push({
-        //     pathname: '/showCourse/' + id
-        // });
+    //Call the view for the patient vital signs
+    const vitalSigns = (userId) => {
+        props.history.push({
+            pathname: '/vitalSignsBypatient/' + userId
+        });
     }
 
     return (
@@ -52,7 +51,6 @@ function ListPatients(props) {
                         </Spinner>
                     }
                     <h2 class="jumbotron-heading"> List of patients</h2>
-                    <p>Patients list bla bla bla</p>
 
                     <table class="table table-hover">
                         <thead>
@@ -70,11 +68,11 @@ function ListPatients(props) {
                                     <td>{item.email}</td>
                                     <td>
                                         <Button
+                                            size='small'
                                             variant="contained"
                                             color="primary"
                                             startIcon={<HealingIcon />}
-                                            className='button__custom'
-                                            onClick={() => { showDetail(item._id) }}
+                                            onClick={() => { vitalSigns(item._id) }}
                                         > Vital signs
                                         </Button>
                                         
@@ -83,10 +81,7 @@ function ListPatients(props) {
                             ))}
 
                         </tbody>
-                    </table>
-
-
-
+                    </table>               
 
 
 

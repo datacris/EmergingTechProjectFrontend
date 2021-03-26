@@ -25,6 +25,8 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
 import ListPatients from './components/ListPatients';
+import VitalSignsByPatient from './components/VitalSignsByPatient';
+import CreateVitalSigns from './components/CreateVitalSigns';
 //
 function App() {
 
@@ -49,6 +51,16 @@ function App() {
           <Route path="/listPatients">
             <ListPatients />
           </Route>
+
+          <Route path="/vitalSignsBypatient/:userId" >
+            <VitalSignsByPatient />
+          </Route >
+
+          <Route path="/registerVitalSigns/:userId" >
+            <CreateVitalSigns />
+          </Route >   
+
+
 
           <Route path="/">
             <SignIn />

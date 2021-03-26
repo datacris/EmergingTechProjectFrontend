@@ -44,6 +44,8 @@ function Dashboard(props) {
   //To store cookie credentials
   const [userRole, setUserRole] = useState('');
   const [userEmail, setUserEmail] = useState('');
+  const [userId, setUserId] = useState('');
+  
 
 
   //Reads the cookie to get user info
@@ -54,9 +56,9 @@ function Dashboard(props) {
 
       if (res.data.userEmail !== '') {
 
-        //  res.data.userId available
         setUserEmail(res.data.userEmail);
         setUserRole(res.data.userRole);
+        setUserId(res.data.userId);
         // getCourses(res.data.userId);
       }
 
@@ -183,9 +185,15 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
-                <ListItem button>
+                <ListItem button
+                          onClick={() => { 
+                            props.history.push({
+                                pathname: '/vitalSignsBypatient/' + userId
+                            });
+                        }}
+               >
                   <ListItemIcon>
-                    <LocalHospitalIcon fontSize="large" />
+                    <LocalHospitalIcon fontSize="large" color={props.title === 'Vital Signs' ? 'secondary' : 'primary'} />
                   </ListItemIcon>
                   <ListItemText primary="Vital signs" />
                 </ListItem>

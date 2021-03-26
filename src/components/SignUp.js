@@ -100,14 +100,12 @@ function SignUp(props) {
             password: user.password,
             userType: radioTypeValue
         };
-        console.log(data)
 
-        console.log(apiUrl);
         Axios.post(apiUrl, data)
             .then((result) => {
-                toast.info('User ' +  result.data.email  + ' created Successfully!', { position: toast.POSITION.BOTTOM_RIGHT, })
-                setTimeout(function(){ 
-                    props.history.push('/') 
+                toast.info('User ' + result.data.email + ' created Successfully!', { position: toast.POSITION.BOTTOM_RIGHT, })
+                setTimeout(function () {
+                    props.history.push('/')
                 }, 1000);
             }).catch((error) => {
                 toast.error('Error ' + error, { position: toast.POSITION.BOTTOM_RIGHT, });
@@ -123,7 +121,8 @@ function SignUp(props) {
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign up
-        </Typography>
+                </Typography>
+
                 <form className={classes.form} noValidate onSubmit={createUser}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} sm={6}>
@@ -183,7 +182,7 @@ function SignUp(props) {
                         <Grid item xs={12}>
                             <FormControl component="fieldset">
                                 <FormLabel component="legend">I am a ...</FormLabel>
-                                <RadioGroup aria-label="gender" name="gender1" value={radioTypeValue} onChange={handleRadioTypeChange}>
+                                <RadioGroup aria-label="role" name="role" value={radioTypeValue} onChange={handleRadioTypeChange}>
                                     <FormControlLabel value="patient" control={<Radio />} label="Patient" />
                                     <FormControlLabel value="nurse" control={<Radio />} label="Nurse" />
                                 </RadioGroup>
