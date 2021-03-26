@@ -24,6 +24,7 @@ import Header from './components/Header';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import Dashboard from './components/Dashboard';
+import ListPatients from './components/ListPatients';
 //
 function App() {
 
@@ -45,8 +46,8 @@ function App() {
             <Home />
           </Route>
 
-          <Route path="/listCourses">
-            <ListCourses />
+          <Route path="/listPatients">
+            <ListPatients />
           </Route>
 
           <Route path="/">

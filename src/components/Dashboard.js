@@ -84,7 +84,7 @@ function Dashboard(props) {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className='toolbar__custom'>
           <Typography variant="h5" noWrap>
             {props.title}
           </Typography>
@@ -116,7 +116,7 @@ function Dashboard(props) {
 
             {userRole === 'nurse' ?
               <div>
-                
+
                 <Link to='/Home' >
                   <ListItem button>
                     <ListItemIcon>
@@ -126,10 +126,10 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
-                <Link to='/listCourses'>
+                <Link to='/listPatients'>
                   <ListItem button>
                     <ListItemIcon>
-                      <PeopleIcon color="primary" fontSize="large" />
+                      <PeopleIcon fontSize="large" color={props.title === 'Patient list' ? 'secondary' : 'primary'} />
                     </ListItemIcon>
                     <ListItemText primary="Patients" />
                   </ListItem>

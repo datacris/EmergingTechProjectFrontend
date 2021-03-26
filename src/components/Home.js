@@ -13,10 +13,12 @@ function Home(props) {
 
                 <div class="container container__custom">
 
-                    <section class="jumbotron text-center bg-light p-5 rounded">
+                    <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
                         <h2 class="jumbotron-heading"> MERN Stack (MongoDB, Express, React, Node js) </h2>
                         <p>Lab Assignment #3 Developed by Cristian Zuluaga.</p>
                         <p>This web app allows to CRUD courses, as well as register students to enroll and drop courses</p>
+                        <img src="https://www.nurseoncall.ie/_fileupload/Image/Homepage_Banner3.jpg_Thumbnail0.jpg" class="img-fluid" alt="Responsive image"></img>
+                        
                     </section>
 
                 </div>

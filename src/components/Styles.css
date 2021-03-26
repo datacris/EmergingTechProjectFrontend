@@ -1,5 +1,9 @@
 .container__custom{
     padding: 30px !important;
+    margin-top: 80px;
+}
+.jumbotron__custom{
+    background-color: #e8eaf6 !important;
 }
 .button__custom{
     margin: 5px !important;
@@ -38,4 +42,8 @@
     padding: 10px;
     position: absolute;
     right: 50px
+}
+
+.toolbar__custom{
+    margin: 5px;
 }
