@@ -29,6 +29,8 @@ import VitalSignsByPatient from './components/VitalSignsByPatient';
 import CreateVitalSigns from './components/CreateVitalSigns';
 import EmergencyAlertsByPatient from './components/EmergencyAlertsByPatient';
 import CreateEmergencyAlert from './components/CreateEmergencyAlert';
+import EmergencyAlertList from './components/EmergencyAlerts/EmergencyAlertList';
+import EmergencyAlertResponse from './components/EmergencyAlerts/EmergencyAlertResponse';
 //
 function App() {
 
@@ -60,7 +62,7 @@ function App() {
 
           <Route path="/registerVitalSigns/:userId" >
             <CreateVitalSigns />
-          </Route >   
+          </Route >
 
           <Route path="/emergencyAlertsBypatient/:userId" >
             <EmergencyAlertsByPatient />
@@ -69,7 +71,15 @@ function App() {
           <Route path="/registerEmergencyAlert/:userId" >
             <CreateEmergencyAlert />
           </Route >
-                    
+
+          <Route path="/emergencyAlerts">
+            <EmergencyAlertList />
+          </Route>
+
+          <Route path="/emergencyAlertResponse/:alertId" >
+            <EmergencyAlertResponse />
+          </Route >
+          
 
           <Route path="/">
             <SignIn />

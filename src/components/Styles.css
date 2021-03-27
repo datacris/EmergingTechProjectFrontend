@@ -47,3 +47,24 @@
 .toolbar__custom{
     margin: 5px;
 }
+
+.card__custom{
+    justify-content: left;
+}
+.emergency_alert__custom{
+    display: flex;
+}
+.button_response__custom{
+    position: absolute;
+    right: 40px;
+}
+.alert_card_content_response__custom{
+    text-align: left
+}
+.alert_image__custom{
+    max-width: 200px;
+}
+.alert_card_response__custom{
+    width: 100%;
+    background-color: #ffccbc !important;
+}

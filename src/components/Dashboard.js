@@ -28,8 +28,6 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import './Styles.css'
 
 
-
-
 function Dashboard(props) {
   const classes = useStyles();
 
@@ -45,7 +43,6 @@ function Dashboard(props) {
   const [userRole, setUserRole] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userId, setUserId] = useState('');
-
 
 
   //Reads the cookie to get user info
@@ -137,12 +134,14 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
-                <ListItem button>
-                  <ListItemIcon>
-                    <AddAlertIcon fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Emergency alerts" />
-                </ListItem>
+                <Link to='/emergencyAlerts'>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <AddAlertIcon fontSize="large" color={props.title === 'Emergency Alerts' ? 'secondary' : 'primary'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Emergency alerts" />
+                  </ListItem>
+                </Link>
 
                 <ListItem button>
                   <ListItemIcon>

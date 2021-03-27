@@ -1,19 +1,38 @@
+import Axios from "axios";
+
 export const initialState = {
-    user: null,
-    endpoint_API: 'http://localhost:3000',
+  user: null,
+  endpoint_API: 'http://localhost:3000',
 };
+
+//***************************************** */
+//Use promises to get user info in the cookie
+//***************************************** */
+export const readCookie = (
+
+  Axios.get('/read_cookie')
+    .then((result) => {
+      return (result.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    }))
+  .then((response) => {
+    return response;
+  });
+
 
 const reducer = (state, action) => {
 
-    console.log(action);
+  console.log(action);
 
-    switch (action.type) {
-        case 'ACTION':
-            return {            };
+  switch (action.type) {
+    case 'ACTION':
+      return {};
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
 
 export default reducer;

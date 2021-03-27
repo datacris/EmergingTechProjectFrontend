@@ -8,12 +8,14 @@ import Axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { Button, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import EmergencyAlert from './EmergencyAlerts/EmergencyAlert';
+import { readCookie } from '../providers/reducer';
 
 function EmergencyAlertsByPatient(props) {
 
     const [{ endpoint_API }, dispatch] = useStateValue();
 
-    const [vitalSigns, setVitalSigns] = useState([]);
+    const [emergencyAlerts, setEmergencyAlerts] = useState([]);
 
     const [patient, setPatient] = useState([]);
 
@@ -21,15 +23,27 @@ function EmergencyAlertsByPatient(props) {
 
     const paramsUsertId = props.match.params.userId
 
+    //To store cookie credentials
+    const [userRole, setUserRole] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userId, setUserId] = useState('');
 
 
     useEffect(() => {
 
         setShowLoading(true);
-        getVitalSigns(paramsUsertId);
+        getEmergencyAlerts(paramsUsertId);
         getPatient(paramsUsertId);
-
         setShowLoading(false);
+
+        const getUserInfo =() => {
+            readCookie.then((result) => {
+                setUserEmail(result.userEmail);
+                setUserRole(result.userRole);
+                setUserId(result.userId);
+            });
+        }   
+        getUserInfo();
 
     }, []);
 
@@ -43,15 +57,14 @@ function EmergencyAlertsByPatient(props) {
     }
 
     //******************************************** */
-    //Gets patien's vital signs
+    //Gets patien's emergency alerts
     //******************************************** */
-    const getVitalSigns = async (userId) => {
+    const getEmergencyAlerts = async (userId) => {
 
-        //Get vital signs by patient
-        const res = await Axios('/vitalSignsBypatient/' + userId);
-        console.log('********234')
+        //Get emergency alerts by patient
+        const res = await Axios('/emergencyAlertsBypatient/' + userId);
         console.log(res.data)
-        setVitalSigns(res.data);
+        setEmergencyAlerts(res.data);
     }
 
     //Call the view for register vital signs to parient by Id
@@ -74,41 +87,27 @@ function EmergencyAlertsByPatient(props) {
                             <span className="sr-only">Loading...</span>
                         </Spinner>
                     }
-                    
-                   
+
                     <Typography component="h1" variant="h5">
-                    Emergency Alerts - Patient: {patient.fullName}
+                        Emergency Alerts - Patient: {patient.fullName}
                     </Typography>
+                    <hr></hr>
+
+                    {emergencyAlerts.map((item) => (
+                        <EmergencyAlert
+                            id={item._id}
+                            alertMessage={item.alertMessage}
+                            medicalResponse={item.medicalResponse}
+                            alertState={item.alertState}
+                            createdBy={item.createdBy}
+                            answeredBy={item.answeredBy}
+                            creationDate={item.creationDate}
+                            answerDate={item.answerDate}
+                        />
+                    ))}
 
 
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Body Temperature</th>
-                                <th>Heart Rate</th>
-                                <th>Blood Pressure</th>
-                                <th>Respiratory Rate</th>
-                                <th>Created By</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {vitalSigns.map((item) => (
-                                <tr key={item._id}>
-                                    <td>{item.bodyTemperature}</td>
-                                    <td>{item.heartRate}</td>
-                                    <td>{item.bloodPressure}</td>
-                                    <td>{item.respiratoryRate}</td>
-                                    <td>{item.createdBy.userType === 'nurse' ? 'Nurse. ' + item.createdBy.fullName : item.createdBy.fullName}</td>
-                                    <td>{item.date}</td>
-                                </tr>
-                            ))}
-
-                        </tbody>
-                    </table>
-
-                    <hr></hr>  
+                    <hr></hr>
 
                     <Button
                         fullWidth
