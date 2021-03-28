@@ -73,4 +73,8 @@
     position:absolute;
     right: 100px;
     margin-right: 200px;
+
+}
+.notification__custom  a{
+    color: white;
 }

@@ -13,10 +13,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
 import { Link, withRouter } from 'react-router-dom';
 import Axios from 'axios';
-
 import IconButton from '@material-ui/core/IconButton';
 import Badge from '@material-ui/core/Badge';
 import NotificationsIcon from '@material-ui/icons/Notifications';
@@ -32,12 +30,15 @@ import './Styles.css'
 
 
 function Dashboard(props) {
+
   const classes = useStyles();
 
+  const [unansweredAlerts, setUnansweredAlerts] = useState([]);
 
   useEffect(() => {
 
     readCookie();
+    getUnansweredAlerts();
 
   }, []);
 
@@ -46,7 +47,6 @@ function Dashboard(props) {
   const [userRole, setUserRole] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userId, setUserId] = useState('');
-
 
   //Reads the cookie to get user info
   const readCookie = async () => {
@@ -68,6 +68,16 @@ function Dashboard(props) {
       console.log(e);
     }
   };
+
+  //******************************************** */
+  //Gets the unanswered alerts
+  //******************************************** */
+  const getUnansweredAlerts = async () => {
+
+    //Get emergency alerts 
+    const res = await Axios('/unansweredAlerts/');
+    setUnansweredAlerts(res.data);
+  }
 
   // called when user clicks on Logout button
   // to clear the cookie and set the screen state variable 
@@ -91,13 +101,32 @@ function Dashboard(props) {
             {props.title}
           </Typography>
 
+
+
           <div className='notification__custom'>
             <IconButton color="inherit" fontSize="large">
-              <Badge badgeContent={4} color="secondary" fontSize="large">
-                <NotificationsIcon fontSize="large" />
-              </Badge>
+              {userRole === 'nurse' ?
+
+                (unansweredAlerts.length > 0 ?
+                  <Link to='/emergencyAlerts' >
+                    <Badge badgeContent={unansweredAlerts.length} color="secondary" fontSize="large">
+                      <NotificationsIcon fontSize="large" />
+                    </Badge>
+                  </Link> :
+                  <Badge color="secondary" fontSize="large">
+                    <NotificationsIcon fontSize="large" />
+                  </Badge>) 
+                  : 
+                  <Badge color="secondary" fontSize="large">
+                    <NotificationsIcon fontSize="large" />
+                  </Badge>
+              }
+
+
             </IconButton>
           </div>
+
+
 
           <div className='user_header__custom'>
             <Typography variant="h5" noWrap >
