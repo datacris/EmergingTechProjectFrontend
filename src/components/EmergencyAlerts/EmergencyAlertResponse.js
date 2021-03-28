@@ -122,8 +122,8 @@ function EmergencyAlertResponse(props) {
                                 </div>
                                 <div class="col-md-8 alert_card_content_response__custom">
                                     <div class="card-body">
-                                        <h4 class="card-title">Patient: {patient.fullName}</h4>
-                                        <h4 class="card-title">Email: {patient.email}</h4>
+                                        <h4 class="card-title"><strong>Patient:</strong> {patient.fullName}</h4>
+                                        <h4 class="card-title"><strong>Email:</strong> {patient.email}</h4>
                                         <h2 class="card-text">{emergencyAlert.alertMessage}</h2>
                                         <p class="card-text"> Creation date: <Moment format="YYYY-MM-DD HH:mm">{emergencyAlert.creationDate}</Moment></p>
 
@@ -160,7 +160,7 @@ function EmergencyAlertResponse(props) {
                         startIcon={<AddIcon />}
                         onClick={() => { respondEmergencyAlert() }}
                     >
-                        send alert
+                        send response
                     </Button>
 
                     <Button

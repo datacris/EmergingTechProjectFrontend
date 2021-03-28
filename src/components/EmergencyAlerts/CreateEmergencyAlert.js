@@ -1,9 +1,9 @@
 
 import { withRouter } from 'react-router-dom';
 import React, { Component, useEffect, useState } from 'react';
-import './Styles.css'
-import Dashboard from './Dashboard';
-import { useStateValue } from '../providers/StateProvider';
+import '../Styles.css'
+import Dashboard from '../Dashboard';
+import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import { Avatar, Button, Grid, TextField, Typography } from '@material-ui/core';
 import Spinner from 'react-bootstrap/Spinner';
@@ -14,13 +14,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure();
 
-function CreateVitalSigns(props) {
+function CreateEmergencyAlert(props) {
 
     const [{ endpoint_API }, dispatch] = useStateValue();
 
-    const apiUrl = endpoint_API + "/registerVitalSigns";
-
-    const [patient, setPatient] = useState([]);
+    const apiUrl = endpoint_API + "/registerEmergencyAlert";
 
     const [creator, setCreator] = useState([]);
 
@@ -29,13 +27,9 @@ function CreateVitalSigns(props) {
     const paramsUsertId = props.match.params.userId;
 
     //Initializing user to get and set values by using onchange event
-    const [vitalSigns, setVitalSigns] = useState({
+    const [emergencyAlert, setEmergencyAlert] = useState({
         _id: '',
-        bodyTemperature: '',
-        heartRate: '',
-        bloodPressure: '',
-        respiratoryRate: '',
-        patient: '',
+        alertMessage: 'Default message - I need help ASAP',
         createdBy: ''
     });
 
@@ -43,21 +37,11 @@ function CreateVitalSigns(props) {
 
         setShowLoading(true);
 
-        readCookie();
-
-        getPatient(paramsUsertId);
+        readCookie()
 
         setShowLoading(false);
 
     }, []);
-
-    //******************************************** */
-    //Get the patient 
-    //******************************************** */
-    const getPatient = async (userId) => {
-        const result = await Axios('/user/' + userId);
-        setPatient(result.data);
-    }
 
     /******************************************** */
     //Get the creator 
@@ -83,21 +67,17 @@ function CreateVitalSigns(props) {
         }
     };
 
-    //updates the vital sign values when changing the values
+    //updates the alert message values when changing the values
     const onChange = (event) => {
         event.persist();
-        setVitalSigns({ ...vitalSigns, [event.target.name]: event.target.value });
+        setEmergencyAlert({ ...emergencyAlert, [event.target.name]: event.target.value });
     }
 
-    //Creates vital signs consuming backend services
-    const registerVitalSigns = () => {
+    //Creates amergency alert consuming backend services
+    const registerAlert = () => {
 
         const data = {
-            bodyTemperature: vitalSigns.bodyTemperature,
-            heartRate: vitalSigns.heartRate,
-            bloodPressure: vitalSigns.bloodPressure,
-            respiratoryRate: vitalSigns.respiratoryRate,
-            patient: patient,
+            alertMessage: emergencyAlert.alertMessage,
             createdBy: creator
         };
 
@@ -105,11 +85,11 @@ function CreateVitalSigns(props) {
         Axios.post(apiUrl, data)
             .then((result) => {
                 setShowLoading(true);
-                toast.info('Vital signs created successfully!', { position: toast.POSITION.BOTTOM_RIGHT, })
+                toast.info('Emergency alert created successfully!', { position: toast.POSITION.BOTTOM_RIGHT, })
                 setTimeout(function () {
                     props.history.push({
-                        pathname: '/vitalSignsBypatient/' + paramsUsertId
-                    });
+                        pathname: '/emergencyAlertsBypatient/' + paramsUsertId
+                      });
                 }, 1000);
             }).catch((error) => {
                 toast.error('Error ' + error, { position: toast.POSITION.BOTTOM_RIGHT, });
@@ -129,68 +109,29 @@ function CreateVitalSigns(props) {
                         </Spinner>
                     }
                     <Typography component="h1" variant="h5">
-                        Register new Vital Signs
+                        Create new Emergency Alert
                     </Typography>
 
                     <hr></hr>                    
 
                     <Grid container spacing={2}>
 
-                        <Grid item xs={12} sm={6}>
+                        <Grid item xs={12} sm={12} >
                             <TextField
-                                autoComplete="bodyTemperature"
-                                name="bodyTemperature"
+                                autoComplete="alertMessage"
+                                name="alertMessage"
                                 variant="outlined"
                                 required
                                 fullWidth
-                                id="bodyTemperature"
-                                label="Body Temperature"
+                                id="alertMessage"
+                                label="Alert message"
                                 autoFocus
-                                value={vitalSigns.bodyTemperature}
+                                value={emergencyAlert.alertMessage}
                                 onChange={onChange}
                             />
                         </Grid>
 
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="heartRate"
-                                label="Heart Rate"
-                                name="heartRate"
-                                autoComplete="heartRate"
-                                value={vitalSigns.heartRate}
-                                onChange={onChange}
-                            />
-                        </Grid>
-
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                id="bloodPressure"
-                                label="Blood Pressure"
-                                name="bloodPressure"
-                                autoComplete="bloodPressure"
-                                value={vitalSigns.bloodPressure}
-                                onChange={onChange}
-                            />
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                                variant="outlined"
-                                required
-                                fullWidth
-                                name="respiratoryRate"
-                                label="Respiratory Rate"
-                                id="respiratoryRate"
-                                autoComplete="respiratoryRate"
-                                value={vitalSigns.respiratoryRate}
-                                onChange={onChange}
-                            />
-                        </Grid>
+                        
                     </Grid>
 
                     <hr></hr>   
@@ -201,9 +142,9 @@ function CreateVitalSigns(props) {
                         color="primary"
                         className='button__custom'
                         startIcon={<AddIcon />}
-                        onClick={() => { registerVitalSigns() }}
+                        onClick={() => { registerAlert() }}
                     >
-                        Register
+                        send alert
                     </Button>
                     
                     <Button
@@ -212,12 +153,12 @@ function CreateVitalSigns(props) {
                         color="primary"
                         startIcon={<ListIcon />}
                         className='button__custom'
-                        onClick={() => { 
+                        onClick={() => {
                             props.history.push({
-                                pathname: '/vitalSignsBypatient/' + paramsUsertId
+                              pathname: '/emergencyAlertsBypatient/' + paramsUsertId
                             });
-                         }}
-                    > Back to list
+                          }} 
+                    > Back
                     </Button>
                     
 
@@ -229,4 +170,4 @@ function CreateVitalSigns(props) {
 
 }
 
-export default withRouter(CreateVitalSigns);
+export default withRouter(CreateEmergencyAlert);

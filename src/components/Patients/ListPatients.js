@@ -1,10 +1,10 @@
 import React, { Component, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import './Styles.css'
-import Dashboard from './Dashboard';
+import '../Styles.css'
+import Dashboard from '../Dashboard';
 import Spinner from 'react-bootstrap/Spinner';
 import { Button, Table } from '@material-ui/core';
-import { useStateValue } from '../providers/StateProvider';
+import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import HealingIcon from '@material-ui/icons/Healing';
 

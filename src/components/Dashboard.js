@@ -17,6 +17,9 @@ import LayersIcon from '@material-ui/icons/Layers';
 import { Link, withRouter } from 'react-router-dom';
 import Axios from 'axios';
 
+import IconButton from '@material-ui/core/IconButton';
+import Badge from '@material-ui/core/Badge';
+import NotificationsIcon from '@material-ui/icons/Notifications';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import LocalHospitalIcon from '@material-ui/icons/LocalHospital';
@@ -87,6 +90,14 @@ function Dashboard(props) {
           <Typography variant="h5" noWrap>
             {props.title}
           </Typography>
+
+          <div className='notification__custom'>
+            <IconButton color="inherit" fontSize="large">
+              <Badge badgeContent={4} color="secondary" fontSize="large">
+                <NotificationsIcon fontSize="large" />
+              </Badge>
+            </IconButton>
+          </div>
 
           <div className='user_header__custom'>
             <Typography variant="h5" noWrap >

@@ -12,25 +12,15 @@ import Nav from 'react-bootstrap/Nav';
 import './App.css';
 
 import Home from './components/Home';
-import Login from './components/Login';
-import ListCourses from './components/ListCourses';
-import CreateCourse from './components/CreateCourse';
-import ShowCourse from './components/ShowCourse';
-import EditCourse from './components/EditCourse';
-import CreateStudent from './components/CreateStudent';
-import ShowStudent from './components/ShowStudent';
-import StudentCourses from './components/StudentCourses';
-import Header from './components/Header';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
-import Dashboard from './components/Dashboard';
-import ListPatients from './components/ListPatients';
-import VitalSignsByPatient from './components/VitalSignsByPatient';
-import CreateVitalSigns from './components/CreateVitalSigns';
-import EmergencyAlertsByPatient from './components/EmergencyAlertsByPatient';
-import CreateEmergencyAlert from './components/CreateEmergencyAlert';
 import EmergencyAlertList from './components/EmergencyAlerts/EmergencyAlertList';
 import EmergencyAlertResponse from './components/EmergencyAlerts/EmergencyAlertResponse';
+import EmergencyAlertsByPatient from './components/EmergencyAlerts/EmergencyAlertsByPatient';
+import CreateVitalSigns from './components/VitalSigns/CreateVitalSigns';
+import VitalSignsByPatient from './components/VitalSigns/VitalSignsByPatient';
+import SignUp from './components/Authentication/SignUp';
+import SignIn from './components/Authentication/SignIn';
+import CreateEmergencyAlert from './components/EmergencyAlerts/CreateEmergencyAlert';
+import ListPatients from './components/Patients/ListPatients';
 //
 function App() {
 

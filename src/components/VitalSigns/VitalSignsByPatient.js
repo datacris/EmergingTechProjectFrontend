@@ -1,9 +1,9 @@
 
 import { withRouter } from 'react-router-dom';
 import React, { Component, useEffect, useState } from 'react';
-import './Styles.css'
-import Dashboard from './Dashboard';
-import { useStateValue } from '../providers/StateProvider';
+import '../Styles.css'
+import Dashboard from '../Dashboard';
+import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { Button, Typography } from '@material-ui/core';

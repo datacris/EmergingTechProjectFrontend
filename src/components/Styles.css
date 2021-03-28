@@ -68,3 +68,9 @@
     width: 100%;
     background-color: #ffccbc !important;
 }
+
+.notification__custom{
+    position:absolute;
+    right: 100px;
+    margin-right: 200px;
+}
