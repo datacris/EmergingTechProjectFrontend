@@ -28,7 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://datacris-emerging-mern-project.herokuapp.com/",
+  "proxy": "https://datacris-emerging-mern-project.herokuapp.com",
   "eslintConfig": {
     "extends": "react-app"
   },

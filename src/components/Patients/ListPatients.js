@@ -15,7 +15,7 @@ function ListPatients(props) {
     const [patients, setPatients] = useState([]);
     const [showLoading, setShowLoading] = useState(true);
 
-    const apiUrl = endpoint_API + "/patients";
+    const apiUrl =  "/patients";
 
     useEffect(() => {
         setShowLoading(true);

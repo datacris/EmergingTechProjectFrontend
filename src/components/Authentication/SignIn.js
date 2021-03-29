@@ -72,7 +72,8 @@ function SignIn(props) {
   const [password, setPassword] = useState();
 
   const [{ endpoint_API }, dispatch] = useStateValue();
-  const apiUrl = endpoint_API + "/signIn";
+  // const apiUrl = endpoint_API + "/signIn";
+   const apiUrl =  "/signIn";
 
   //send email and password to the server to authenticate process
   const authenticate = async () => {
@@ -85,16 +86,17 @@ function SignIn(props) {
           password
         }
       }
-
+      console.log('----------345')
+      console.log(apiUrl)
       const res = await Axios.post(apiUrl, loginData);
       //process the response
       if (res.data.status === 'success') {
         props.history.push('/home')
         toast.info('Welcome ' + res.data.userEmail + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
-      }else{
+      } else {
         toast.error('Error: ' + res.data.message + ' !', { position: toast.POSITION.BOTTOM_RIGHT, })
       }
-    } catch (e) { 
+    } catch (e) {
       console.log(e);
     }
 

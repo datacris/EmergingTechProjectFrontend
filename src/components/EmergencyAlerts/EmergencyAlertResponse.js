@@ -20,7 +20,7 @@ function EmergencyAlertResponse(props) {
 
     const [{ endpoint_API }, dispatch] = useStateValue();
 
-    const apiUrl = endpoint_API + "/responseEmergencyAlert/" + props.match.params.alertId;
+    const apiUrl =  "/responseEmergencyAlert/" + props.match.params.alertId;
 
     const [emergencyAlert, setEmergencyAlert] = useState([]);
 

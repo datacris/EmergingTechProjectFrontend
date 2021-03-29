@@ -19,7 +19,7 @@ function CreateMotivationalMessage(props) {
 
     const [{ endpoint_API }, dispatch] = useStateValue();
 
-    const apiUrl = endpoint_API + "/createMotivationalMessage";
+    const apiUrl =  "/createMotivationalMessage";
 
     const [creator, setCreator] = useState([]);
 
