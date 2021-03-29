@@ -81,7 +81,6 @@ function CreateEmergencyAlert(props) {
             createdBy: creator
         };
 
-        console.log(apiUrl);
         Axios.post(apiUrl, data)
             .then((result) => {
                 setShowLoading(true);

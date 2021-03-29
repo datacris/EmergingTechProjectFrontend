@@ -25,6 +25,7 @@ import TheatersIcon from '@material-ui/icons/Theaters';
 import StarsIcon from '@material-ui/icons/Stars';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 import './Styles.css'
 
@@ -115,11 +116,11 @@ function Dashboard(props) {
                   </Link> :
                   <Badge color="secondary" fontSize="large">
                     <NotificationsIcon fontSize="large" />
-                  </Badge>) 
-                  : 
-                  <Badge color="secondary" fontSize="large">
-                    <NotificationsIcon fontSize="large" />
-                  </Badge>
+                  </Badge>)
+                :
+                <Badge color="secondary" fontSize="large">
+                  <NotificationsIcon fontSize="large" />
+                </Badge>
               }
 
 
@@ -183,19 +184,28 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
-                <ListItem button>
-                  <ListItemIcon>
-                    <StarsIcon fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Daily tips" />
-                </ListItem>
+                <Link>
+                  <ListItem button
+                    onClick={() => {
+                      props.history.push({
+                        pathname: '/motivationalMessages'
+                      });
+                    }}  >
+                    <ListItemIcon>
+                      <StarsIcon fontSize="large" color={props.title === 'Motivational Messages' ? 'secondary' : 'primary'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Motivational Messages" />
+                  </ListItem>
+                </Link>
 
-                <ListItem button>
-                  <ListItemIcon>
-                    <BarChartIcon fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Checklist Reports" />
-                </ListItem>
+                <Link>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <BarChartIcon fontSize="large" />
+                    </ListItemIcon>
+                    <ListItemText primary="Checklist Reports" />
+                  </ListItem>
+                </Link>
 
 
               </div>
@@ -215,53 +225,56 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
+                <Link>
+                  <ListItem button
+                    onClick={() => {
+                      props.history.push({
+                        pathname: '/emergencyAlertsBypatient/' + userId
+                      });
+                    }}  >
+                    <ListItemIcon>
+                      <AddAlertIcon fontSize="large" color={props.title === 'Emergency Alerts' ? 'secondary' : 'primary'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Emergency alerts" />
+                  </ListItem>
+                </Link>
 
-                <ListItem button
-                  onClick={() => {
-                    props.history.push({
-                      pathname: '/emergencyAlertsBypatient/' + userId
-                    });
-                  }}  >
-                  <ListItemIcon>
-                    <AddAlertIcon fontSize="large" color={props.title === 'Emergency Alerts' ? 'secondary' : 'primary'} />
-                  </ListItemIcon>
-                  <ListItemText primary="Emergency alerts" />
-                </ListItem>
+                <Link>
+                  <ListItem button
+                    onClick={() => {
+                      props.history.push({
+                        pathname: '/vitalSignsBypatient/' + userId
+                      });
+                    }}  >
+                    <ListItemIcon>
+                      <LocalHospitalIcon fontSize="large" color={props.title === 'Vital Signs' ? 'secondary' : 'primary'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Vital signs" />
+                  </ListItem>
+                </Link>
 
+                <Link>
+                  <ListItem button
+                    onClick={() => {
+                      props.history.push({
+                        pathname: '/motivationalMessages'
+                      });
+                    }}  >
+                    <ListItemIcon>
+                      <TheatersIcon fontSize="large" color={props.title === 'Motivational Messages' ? 'secondary' : 'primary'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Motivational Messages" />
+                  </ListItem>
+                </Link>
 
-                <ListItem button
-                  onClick={() => {
-                    props.history.push({
-                      pathname: '/vitalSignsBypatient/' + userId
-                    });
-                  }}  >
-                  <ListItemIcon>
-                    <LocalHospitalIcon fontSize="large" color={props.title === 'Vital Signs' ? 'secondary' : 'primary'} />
-                  </ListItemIcon>
-                  <ListItemText primary="Vital signs" />
-                </ListItem>
-
-                <ListItem button>
-                  <ListItemIcon>
-                    <TheatersIcon fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Multimedia" />
-                </ListItem>
-
-                <ListItem button>
-                  <ListItemIcon>
-                    <StarsIcon fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Daily tips" />
-                </ListItem>
-
-
-                <ListItem button>
-                  <ListItemIcon>
-                    <PlaylistAddCheckIcon fontSize="large" />
-                  </ListItemIcon>
-                  <ListItemText primary="Checklist" />
-                </ListItem>
+                <Link>
+                  <ListItem button>
+                    <ListItemIcon>
+                      <PlaylistAddCheckIcon fontSize="large" />
+                    </ListItemIcon>
+                    <ListItemText primary="Checklist" />
+                  </ListItem>
+                </Link>
               </div>
               :
               <div></div>
@@ -271,14 +284,27 @@ function Dashboard(props) {
           </List>
 
           <Divider />
-          <List>
-            <ListItem button onClick={deleteCookie}>
+
+          <Link to='/about'  >
+            <ListItem button >
               <ListItemIcon>
-                <ExitToAppIcon fontSize="large" />
+                <HelpOutlineIcon fontSize="large" color={props.title === 'About this app' ? 'secondary' : 'primary'} />
               </ListItemIcon>
-              <ListItemText primary="Log out" />
+              <ListItemText primary="About App" />
             </ListItem>
-          </List>
+          </Link>
+
+          <Link>
+            <List className="link__custom">
+              <ListItem button onClick={deleteCookie}>
+                <ListItemIcon>
+                  <ExitToAppIcon fontSize="large" />
+                </ListItemIcon>
+                <ListItemText primary="Log out" />
+              </ListItem>
+            </List>
+          </Link>
+
 
         </div>
       </Drawer>

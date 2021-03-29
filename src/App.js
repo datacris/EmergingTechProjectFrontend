@@ -7,11 +7,9 @@ import {
   Redirect
 } from "react-router-dom";
 //
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import './App.css';
 
 import Home from './components/Home';
+import About from './components/About';
 import EmergencyAlertList from './components/EmergencyAlerts/EmergencyAlertList';
 import EmergencyAlertResponse from './components/EmergencyAlerts/EmergencyAlertResponse';
 import EmergencyAlertsByPatient from './components/EmergencyAlerts/EmergencyAlertsByPatient';
@@ -21,6 +19,8 @@ import SignUp from './components/Authentication/SignUp';
 import SignIn from './components/Authentication/SignIn';
 import CreateEmergencyAlert from './components/EmergencyAlerts/CreateEmergencyAlert';
 import ListPatients from './components/Patients/ListPatients';
+import MotivationalMessagesList from './components/MotivationalMessages/MotivationalMessagesList';
+import CreateMotivationalMessage from './components/MotivationalMessages/CreateMotivationalMessage';
 //
 function App() {
 
@@ -40,6 +40,10 @@ function App() {
 
           <Route path="/home">
             <Home />
+          </Route>
+
+          <Route path="/about">
+            <About />
           </Route>
 
           <Route path="/listPatients">
@@ -69,17 +73,20 @@ function App() {
           <Route path="/emergencyAlertResponse/:alertId" >
             <EmergencyAlertResponse />
           </Route >
+
+          <Route path="/motivationalMessages" >
+            <MotivationalMessagesList />
+          </Route >
           
+          <Route path="/createMotivationalMessage" >
+            <CreateMotivationalMessage />
+          </Route >          
 
           <Route path="/">
             <SignIn />
           </Route>
 
-
-
-
         </Switch>
-        {/* <Header /> */}
 
       </Router>
     </div>
