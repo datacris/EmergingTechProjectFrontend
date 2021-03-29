@@ -70,6 +70,7 @@ function EmergencyAlertList(props) {
 
                     {emergencyAlerts.map((item) => (
                         <EmergencyAlert
+                            key={item._id}
                             _id={item._id}
                             alertMessage={item.alertMessage}
                             medicalResponse={item.medicalResponse}

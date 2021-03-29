@@ -1,5 +1,5 @@
 import { withRouter } from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 import './Styles.css'
 import Dashboard from './Dashboard';
 import Slider from 'react-animated-slider';
@@ -14,7 +14,6 @@ function Home(props) {
         { title: 'Vital Signs', description: 'Patient and Nurse vital signs to monitor patient health', image: 'https://images.unsplash.com/photo-1615486511484-92e172cc4fe0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80' },
         { title: 'Machine Learning', description: 'Checklists for machine learning processes', image: 'https://images.unsplash.com/photo-1504711331083-9c895941bf81?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80' }
     ];
-
 
     return (
         <div>

@@ -1,17 +1,17 @@
 
 import { withRouter } from 'react-router-dom';
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles.css'
 import Dashboard from '../Dashboard';
 import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
-import { Avatar, Button, Grid, TextField, Typography } from '@material-ui/core';
+import { Button, Grid, TextField, Typography } from '@material-ui/core';
 import Spinner from 'react-bootstrap/Spinner';
 import AddIcon from '@material-ui/icons/Add';
 import ListIcon from '@material-ui/icons/List';
 import Moment from 'react-moment';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { readCookie } from '../../providers/reducer';
 toast.configure();

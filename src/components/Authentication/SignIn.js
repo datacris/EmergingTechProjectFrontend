@@ -14,7 +14,7 @@ import { withRouter } from 'react-router';
 import Axios from 'axios';
 import { useStateValue } from '../../providers/StateProvider';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 toast.configure();
 

@@ -38,6 +38,9 @@ function About(props) {
                                             <h4><CheckCircleOutlineIcon className='check__custom' /> Animated Slider</h4>
                                             <h4><CheckCircleOutlineIcon className='check__custom' /> Notification System</h4>
                                             <h4><CheckCircleOutlineIcon className='check__custom' /> Video player</h4>
+                                            <hr></hr>
+                                            <h4><CheckCircleOutlineIcon className='check__custom' /> MongoDB Atlas deployment (Cloud)</h4>
+                                            <h4><CheckCircleOutlineIcon className='check__custom' /> Heroku Backend deploymeny  (Cloud)</h4>
 
                                         </div>
 

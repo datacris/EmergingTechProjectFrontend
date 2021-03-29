@@ -57,7 +57,7 @@ function MotivationalMessageCard(props) {
                         <Typography gutterBottom variant="h4" component="h2">
                             {props.title}
                         </Typography>
-                        <Typography  color="textSecondary" component="p">
+                        <Typography color="textSecondary" component="p">
                             {props.description}
                         </Typography>
                         <hr></hr>
@@ -67,7 +67,8 @@ function MotivationalMessageCard(props) {
 
                     </CardContent>
                 </CardActionArea>
-            </Card>
+
+            </Card>      
 
 
 
@@ -101,3 +102,15 @@ function MotivationalMessageCard(props) {
 }
 
 export default withRouter(MotivationalMessageCard);
+
+//This code is for external videos using its ID
+{/* <div>
+<iframe id="inlineFrameExample"
+    title="Inline Frame Example"
+    width="608"
+    height="480"
+    scrolling='no'
+    frameborder='0'
+    src="siteUrl/embed/videoId">
+</iframe>
+</div> */}
