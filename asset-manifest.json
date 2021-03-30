@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/EmergingTechProjectFrontend/static/css/main.6a3dde1b.chunk.css",
+    "main.js": "/EmergingTechProjectFrontend/static/js/main.5eba27e8.chunk.js",
+    "main.js.map": "/EmergingTechProjectFrontend/static/js/main.5eba27e8.chunk.js.map",
+    "runtime-main.js": "/EmergingTechProjectFrontend/static/js/runtime-main.8ce5a408.js",
+    "runtime-main.js.map": "/EmergingTechProjectFrontend/static/js/runtime-main.8ce5a408.js.map",
+    "static/css/2.70ea0eed.chunk.css": "/EmergingTechProjectFrontend/static/css/2.70ea0eed.chunk.css",
+    "static/js/2.20af07d6.chunk.js": "/EmergingTechProjectFrontend/static/js/2.20af07d6.chunk.js",
+    "static/js/2.20af07d6.chunk.js.map": "/EmergingTechProjectFrontend/static/js/2.20af07d6.chunk.js.map",
+    "index.html": "/EmergingTechProjectFrontend/index.html",
+    "static/css/2.70ea0eed.chunk.css.map": "/EmergingTechProjectFrontend/static/css/2.70ea0eed.chunk.css.map",
+    "static/css/main.6a3dde1b.chunk.css.map": "/EmergingTechProjectFrontend/static/css/main.6a3dde1b.chunk.css.map",
+    "static/js/2.20af07d6.chunk.js.LICENSE.txt": "/EmergingTechProjectFrontend/static/js/2.20af07d6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8ce5a408.js",
+    "static/css/2.70ea0eed.chunk.css",
+    "static/js/2.20af07d6.chunk.js",
+    "static/css/main.6a3dde1b.chunk.css",
+    "static/js/main.5eba27e8.chunk.js"
+  ]
+}
