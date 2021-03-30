@@ -18,7 +18,7 @@ function CreateVitalSigns(props) {
 
     const [{ endpoint_API }, dispatch] = useStateValue();
 
-    const apiUrl =  "/registerVitalSigns";
+    const apiUrl =  endpoint_API+"/registerVitalSigns";
 
     const [patient, setPatient] = useState([]);
 

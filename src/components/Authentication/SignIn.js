@@ -72,8 +72,7 @@ function SignIn(props) {
   const [password, setPassword] = useState();
 
   const [{ endpoint_API }, dispatch] = useStateValue();
-  // const apiUrl = endpoint_API + "/signIn";
-   const apiUrl =  "/signIn";
+  const apiUrl = endpoint_API + "/signIn";
 
   //send email and password to the server to authenticate process
   const authenticate = async () => {
@@ -86,7 +85,8 @@ function SignIn(props) {
           password
         }
       }
-      console.log('----------345')
+  
+      console.log('-----------SignIn function')
       console.log(apiUrl)
       const res = await Axios.post(apiUrl, loginData);
       //process the response

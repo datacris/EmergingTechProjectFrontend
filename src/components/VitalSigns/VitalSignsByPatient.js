@@ -49,8 +49,6 @@ function VitalSignsByPatient(props) {
 
         //Get vital signs by patient
         const res = await Axios('/vitalSignsBypatient/' + userId);
-        console.log('********234')
-        console.log(res.data)
         setVitalSigns(res.data);
     }
 

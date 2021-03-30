@@ -18,7 +18,7 @@ function CreateEmergencyAlert(props) {
 
     const [{ endpoint_API }, dispatch] = useStateValue();
 
-    const apiUrl =  "/registerEmergencyAlert";
+    const apiUrl = endpoint_API+ "/registerEmergencyAlert";
 
     const [creator, setCreator] = useState([]);
 

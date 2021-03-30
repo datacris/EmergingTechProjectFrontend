@@ -5,6 +5,19 @@ import Dashboard from './Dashboard';
 import Slider from 'react-animated-slider';
 import 'react-animated-slider/build/horizontal.css';
 
+/*
+These options belongs to package.json frontend, calling the backend endpoint
+
+"proxy": "https://datacris-emerging-mern-project.herokuapp.com/",
+"proxy": "http://localhost:5000/",
+
+These options belongs to reducer, calling the frontend endpoint
+
+ endpoint_API: 'https://cristian-zuluaga-emerging-tech-final-project.netlify.app',
+ endpoint_API: 'http://localhost:3000',
+
+*/
+
 function Home(props) {
 
     const slides = [
