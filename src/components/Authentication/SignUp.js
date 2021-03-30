@@ -4,7 +4,6 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -18,7 +17,7 @@ import Radio from '@material-ui/core/Radio';
 import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { withRouter } from 'react-router';
 toast.configure();
@@ -65,7 +64,7 @@ function SignUp(props) {
     const [radioTypeValue, setRadioTypeValue] = React.useState('patient');
 
     //Getting FRONT endpoint from reducer and stateProvider
-    const [{ endpoint_API }, dispatch] = useStateValue();
+    const [{ endpoint_API }] = useStateValue();
     const apiUrl = endpoint_API + "/createUser";
 
     //Initializing user to get and set values by using onchange event

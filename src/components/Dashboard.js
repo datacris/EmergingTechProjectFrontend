@@ -38,6 +38,23 @@ function Dashboard(props) {
 
   useEffect(() => {
 
+    //Reads the cookie to get user info
+    const readCookie = async (props) => {
+      try {
+        const res = await Axios.get('/read_cookie');
+        if (res.data.userEmail !== '') {
+          setUserEmail(res.data.userEmail);
+          setUserRole(res.data.userRole);
+          setUserId(res.data.userId);
+          // getCourses(res.data.userId);
+        }
+      } catch (e) {
+        setUserRole('');
+        props.history.push('/SignIn')
+        console.log(e);
+      }
+    };
+
     readCookie();
     getUnansweredAlerts();
 
@@ -49,26 +66,7 @@ function Dashboard(props) {
   const [userEmail, setUserEmail] = useState('');
   const [userId, setUserId] = useState('');
 
-  //Reads the cookie to get user info
-  const readCookie = async () => {
-    try {
 
-      const res = await Axios.get('/read_cookie');
-
-      if (res.data.userEmail !== '') {
-
-        setUserEmail(res.data.userEmail);
-        setUserRole(res.data.userRole);
-        setUserId(res.data.userId);
-        // getCourses(res.data.userId);
-      }
-
-    } catch (e) {
-      setUserRole('');
-      props.history.push('/SignIn')
-      console.log(e);
-    }
-  };
 
   //******************************************** */
   //Gets the unanswered alerts

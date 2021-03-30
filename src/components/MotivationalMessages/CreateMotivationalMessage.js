@@ -1,34 +1,29 @@
 
 import { withRouter } from 'react-router-dom';
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import '../Styles.css'
 import Dashboard from '../Dashboard';
 import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
-import { Avatar, Button, Grid, TextField, Typography } from '@material-ui/core';
+import {  Button, Grid, TextField, Typography } from '@material-ui/core';
 import Spinner from 'react-bootstrap/Spinner';
 import AddIcon from '@material-ui/icons/Add';
 import ListIcon from '@material-ui/icons/List';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { readCookie } from '../../providers/reducer';
 toast.configure();
 
 function CreateMotivationalMessage(props) {
 
-    const [{ endpoint_API }, dispatch] = useStateValue();
+    const [{ endpoint_API }] = useStateValue();
 
     const apiUrl =  endpoint_API+"/createMotivationalMessage";
 
     const [creator, setCreator] = useState([]);
 
     const [showLoading, setShowLoading] = useState(true);
-
-    //To store cookie credentials
-    const [userRole, setUserRole] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userId, setUserId] = useState('');
 
     //Initializing user to get and set values by using onchange event
     const [motivationalMessage, setMotivationalMessage] = useState({
@@ -46,9 +41,9 @@ function CreateMotivationalMessage(props) {
         
         const getUserInfo = () => {
             readCookie.then((result) => {
-                setUserEmail(result.userEmail);
-                setUserRole(result.userRole);
-                setUserId(result.userId);
+                // setUserEmail(result.userEmail);
+                // setUserRole(result.userRole);
+                // setUserId(result.userId);
                 getCreatorUser(result.userId);
             });
         }
@@ -101,8 +96,8 @@ function CreateMotivationalMessage(props) {
         <div>
             < Dashboard title='Create Motivational Message' />
 
-            <div class="container container__custom">
-                <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
+            <div className="container container__custom">
+                <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
 
                     {showLoading &&
                         <Spinner animation="border" role="status">

@@ -1,17 +1,14 @@
 
 import { withRouter } from 'react-router-dom';
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import '../Styles.css'
 import Dashboard from '../Dashboard';
-import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { Button, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 function VitalSignsByPatient(props) {
-
-    const [{ endpoint_API }, dispatch] = useStateValue();
 
     const [vitalSigns, setVitalSigns] = useState([]);
 
@@ -63,9 +60,9 @@ function VitalSignsByPatient(props) {
         <div>
             < Dashboard title='Vital Signs' />
 
-            <div class="container container__custom">
+            <div className="container container__custom">
 
-                <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
+                <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
 
                     {showLoading &&
                         <Spinner animation="border" role="status">

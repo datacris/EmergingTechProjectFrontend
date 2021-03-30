@@ -71,12 +71,11 @@ function SignIn(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  const [{ endpoint_API }, dispatch] = useStateValue();
+  const [{ endpoint_API }] = useStateValue();
   const apiUrl = endpoint_API + "/signIn";
 
   //send email and password to the server to authenticate process
   const authenticate = async () => {
-
     try {
       //make a get request to /authenticate end-point on the server
       const loginData = {

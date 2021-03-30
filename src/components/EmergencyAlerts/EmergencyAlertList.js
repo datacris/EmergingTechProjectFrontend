@@ -1,23 +1,17 @@
 
 import { withRouter } from 'react-router-dom';
-import React, { Component, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Styles.css'
 import Dashboard from '../Dashboard';
-import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
-import { Button, Typography } from '@material-ui/core';
-import { readCookie } from "../../providers/reducer"
+import {  Typography } from '@material-ui/core';
 
 import EmergencyAlert from './EmergencyAlert';
 
 function EmergencyAlertList(props) {
-
-    const [{ endpoint_API }, dispatch] = useStateValue();
-
+    
     const [emergencyAlerts, setEmergencyAlerts] = useState([]);
-
-    const [patient, setPatient] = useState([]);
 
     const [showLoading, setShowLoading] = useState(true);
 
@@ -53,9 +47,9 @@ function EmergencyAlertList(props) {
         <div>
             < Dashboard title='Emergency Alerts' />
 
-            <div class="container container__custom">
+            <div className="container container__custom">
 
-                <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
+                <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
 
                     {showLoading &&
                         <Spinner animation="border" role="status">

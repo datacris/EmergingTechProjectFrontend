@@ -1,16 +1,16 @@
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import '../Styles.css'
 import Dashboard from '../Dashboard';
 import Spinner from 'react-bootstrap/Spinner';
-import { Button, Table } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import HealingIcon from '@material-ui/icons/Healing';
 
 function ListPatients(props) {
 
-    const [{ endpoint_API }, dispatch] = useStateValue();
+    const [{ endpoint_API }] = useStateValue();
 
     const [patients, setPatients] = useState([]);
     const [showLoading, setShowLoading] = useState(true);
@@ -21,7 +21,6 @@ function ListPatients(props) {
         setShowLoading(true);
         const fetchData = async () => {
             const result = await Axios(apiUrl);
-
             setPatients((result.data));
             setShowLoading(false);
         };
@@ -41,9 +40,9 @@ function ListPatients(props) {
         <div>
             < Dashboard title='Patient list' />
 
-            <div class="container container__custom">
+            <div className="container container__custom">
 
-                <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
+                <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
 
                     {showLoading &&
                         <Spinner animation="border" role="status">

@@ -1,8 +1,7 @@
 import { withRouter } from 'react-router-dom';
-import React, { Component, useEffect, useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import '../Styles.css'
 import Dashboard from '../Dashboard';
-import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { Button, Typography } from '@material-ui/core';
@@ -11,8 +10,6 @@ import EmergencyAlert from './EmergencyAlert';
 import { readCookie } from '../../providers/reducer';
 
 function EmergencyAlertsByPatient(props) {
-
-    const [{ endpoint_API }, dispatch] = useStateValue();
 
     const [emergencyAlerts, setEmergencyAlerts] = useState([]);
 
@@ -23,9 +20,9 @@ function EmergencyAlertsByPatient(props) {
     const paramsUsertId = props.match.params.userId
 
     //To store cookie credentials
-    const [userRole, setUserRole] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userId, setUserId] = useState('');
+    // const [userRole, setUserRole] = useState('');
+    // const [userEmail, setUserEmail] = useState('');
+    // const [userId, setUserId] = useState('');
 
 
     useEffect(() => {
@@ -37,9 +34,9 @@ function EmergencyAlertsByPatient(props) {
 
         const getUserInfo =() => {
             readCookie.then((result) => {
-                setUserEmail(result.userEmail);
-                setUserRole(result.userRole);
-                setUserId(result.userId);
+                // setUserEmail(result.userEmail);
+                // setUserRole(result.userRole);
+                // setUserId(result.userId);
             });
         }   
         getUserInfo();
@@ -62,7 +59,6 @@ function EmergencyAlertsByPatient(props) {
 
         //Get emergency alerts by patient
         const res = await Axios('/emergencyAlertsBypatient/' + userId);
-        console.log(res.data)
         setEmergencyAlerts(res.data);
     }
 
@@ -77,9 +73,9 @@ function EmergencyAlertsByPatient(props) {
         <div>
             < Dashboard title='Emergency Alerts' />
 
-            <div class="container container__custom">
+            <div className="container container__custom">
 
-                <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
+                <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
 
                     {showLoading &&
                         <Spinner animation="border" role="status">
@@ -94,6 +90,7 @@ function EmergencyAlertsByPatient(props) {
 
                     {emergencyAlerts.map((item) => (
                         <EmergencyAlert
+                            key={item._id}
                             id={item._id}
                             alertMessage={item.alertMessage}
                             medicalResponse={item.medicalResponse}

@@ -18,7 +18,7 @@ toast.configure();
 
 function EmergencyAlertResponse(props) {
 
-    const [{ endpoint_API }, dispatch] = useStateValue();
+    const [{ endpoint_API }] = useStateValue();
 
     const apiUrl = endpoint_API+ "/responseEmergencyAlert/" + props.match.params.alertId;
 
@@ -27,30 +27,27 @@ function EmergencyAlertResponse(props) {
     const [patient, setPatient] = useState([]);
 
     //To store cookie credentials
-    const [userRole, setUserRole] = useState('');
-    const [userEmail, setUserEmail] = useState('');
+    // const [userRole, setUserRole] = useState('');
+    // const [userEmail, setUserEmail] = useState('');
     const [userId, setUserId] = useState('');
 
     const [showLoading, setShowLoading] = useState(true);
 
     const paramsAlertId = props.match.params.alertId;
 
-
     useEffect(() => {
-
+        
         setShowLoading(true);
         getEmergencyAlert(paramsAlertId);
 
         const getUserInfo = () => {
             readCookie.then((result) => {
-                setUserEmail(result.userEmail);
-                setUserRole(result.userRole);
+                // setUserEmail(result.userEmail);
+                // setUserRole(result.userRole);
                 setUserId(result.userId);
             });
         }
         getUserInfo();
-
-
 
         setShowLoading(false);
 
@@ -96,8 +93,8 @@ function EmergencyAlertResponse(props) {
         <div>
             < Dashboard title='Emergency Alert - Response' />
 
-            <div class="container container__custom">
-                <section class="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
+            <div className="container container__custom">
+                <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
 
                     {showLoading &&
                         <Spinner animation="border" role="status">
@@ -115,7 +112,7 @@ function EmergencyAlertResponse(props) {
                         <div class="card mb-3 bg-light border-dark alert_card_response__custom" >
                             <div class="row no-gutters">
                                 <div class="col-md-4">
-                                    <img
+                                    <img alt=''
                                         src="https://cdn.shopify.com/s/files/1/2809/4372/products/MEDICAL_ICON_aad3cda6-293e-439c-812c-d4a8bc2252df_1024x1024@2x.png?v=1538711296"
                                         class="card-img alert_image__custom" />
 

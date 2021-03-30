@@ -6,23 +6,21 @@ import DoneOutlineIcon from '@material-ui/icons/DoneOutline';
 import { Button, Typography } from '@material-ui/core';
 import { readCookie } from "../../providers/reducer"
 import Moment from 'react-moment';
-import Axios from 'axios';
-import { useStateValue } from '../../providers/StateProvider';
 
 function EmergencyAlert(props) {
 
     //To store cookie credentials
     const [userRole, setUserRole] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userId, setUserId] = useState('');
+    // const [userEmail, setUserEmail] = useState('');
+    // const [userId, setUserId] = useState('');
 
     useEffect(() => {
 
         const getUserInfo = () => {
             readCookie.then((result) => {
-                setUserEmail(result.userEmail);
+                // setUserEmail(result.userEmail);
                 setUserRole(result.userRole);
-                setUserId(result.userId);
+                // setUserId(result.userId);
             });
         }
         getUserInfo();
@@ -40,9 +38,9 @@ function EmergencyAlert(props) {
 
     return (
         <div>
-            <div class="card text-left bg-light mb-3 card__custom" >
+            <div className="card text-left bg-light mb-3 card__custom" >
 
-                <div class="card-header">
+                <div className="card-header">
                     {props.alertState === 'created' ?
                         <div className='emergency_alert__custom'>
                             <Typography noWrap color='secondary'>
