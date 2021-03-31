@@ -18,6 +18,7 @@ import CreateEmergencyAlert from './components/EmergencyAlerts/CreateEmergencyAl
 import ListPatients from './components/Patients/ListPatients';
 import MotivationalMessagesList from './components/MotivationalMessages/MotivationalMessagesList';
 import CreateMotivationalMessage from './components/MotivationalMessages/CreateMotivationalMessage';
+import Checklist from './components/Checklist/Checklist';
 //
 function App() {
 
@@ -45,6 +46,10 @@ function App() {
 
           <Route path="/listPatients">
             <ListPatients />
+          </Route>
+
+          <Route path="/checklist">
+            <Checklist />
           </Route>
 
           <Route path="/vitalSignsBypatient/:userId" >

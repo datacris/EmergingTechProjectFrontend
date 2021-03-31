@@ -266,9 +266,14 @@ function Dashboard(props) {
                 </Link>
 
                 <Link>
-                  <ListItem button>
+                <ListItem button
+                    onClick={() => {
+                      props.history.push({
+                        pathname: '/checklist'
+                      });
+                    }}  >
                     <ListItemIcon>
-                      <PlaylistAddCheckIcon fontSize="large" />
+                      <PlaylistAddCheckIcon fontSize="large" color={props.title === 'Checklist' ? 'secondary' : 'primary'} />
                     </ListItemIcon>
                     <ListItemText primary="Checklist" />
                   </ListItem>
