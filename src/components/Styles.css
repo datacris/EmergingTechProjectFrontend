@@ -2,6 +2,12 @@
     padding: 30px !important;
     margin-top: 80px;
 }
+.ckecklist_content__custom{
+    justify-content: left !important;
+}
+.checklist_option__custom{
+    display: flex;
+}
 .jumbotron__custom{
     background-color: #e8eaf6 !important;
 }

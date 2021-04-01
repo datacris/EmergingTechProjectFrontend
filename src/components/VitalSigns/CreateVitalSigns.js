@@ -50,7 +50,7 @@ function CreateVitalSigns(props) {
                 const res = await Axios.get('/read_cookie');
                 if (res.data.userEmail !== '') {
                     // setUserEmail(res.data.userEmail);
-                    // setUserRole(res.data.userRole);                
+                    // setUserRole(res.data.userRole);                zz
                     getCreatorUser(res.data.userId);
                 }
             } catch (e) {
@@ -82,8 +82,6 @@ function CreateVitalSigns(props) {
         const result = await Axios('/user/' + userId);
         setCreator(result.data);
     }
-
-
 
     //updates the vital sign values when changing the values
     const onChange = (event) => {
