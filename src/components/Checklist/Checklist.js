@@ -128,7 +128,7 @@ function Checklist(props) {
                             <div className="row no-gutters">
                                 <div className="col-md-4">
                                     <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img" alt="..." />
-                                    
+
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
@@ -368,13 +368,34 @@ function Checklist(props) {
                     <div className={classes.paper}>
                         <div className='modal__custom'>
                             <h2 id="transition-modal-title">Prediction based on system's data</h2>
-                            <p id="transition-modal-description"> Arthritis probability: {arthritisProbability} %</p>
-                            <p id="transition-modal-description"> Hypertension probability: {hypertensionProbability} %</p>
-                            <p id="transition-modal-description"> Asthma probability: {asthmaProbability} %</p>
-                            <p id="transition-modal-description"> Cancer probability: {cancerProbability} %</p>
-                            <p id="transition-modal-description"> Bronchitis probability: {bronchitisProbability} %</p>
-                            <p id="transition-modal-description"> Chronic kidney disease probability: {chronicKidneyDiseaseProbability} %</p>
+                            {arthritisProbability > 0 ? 
+                                <p id="transition-modal-description"> Arthritis probability: {arthritisProbability} %</p> 
+                                : <p></p>
+                            }
+                            {arthritisProbability > 0 ? 
+                                <p id="transition-modal-description"> Hypertension probability: {arthritisProbability} %</p> 
+                                : <p></p>
+                            }
+                            {asthmaProbability > 0 ? 
+                                <p id="transition-modal-description"> Asthma probability: {asthmaProbability} %</p> 
+                                : <p></p>
+                            }
+                            {cancerProbability > 0 ? 
+                                <p id="transition-modal-description"> Cancer probability:: {cancerProbability} %</p> 
+                                : <p></p>
+                            }
+                            {bronchitisProbability > 0 ? 
+                                <p id="transition-modal-description"> Bronchitis probability: {bronchitisProbability} %</p> 
+                                : <p></p>
+                            }
+                            {chronicKidneyDiseaseProbability > 0 ? 
+                                <p id="transition-modal-description"> Chronic kidney disease probability: {chronicKidneyDiseaseProbability} %</p> 
+                                : <p></p>
+                            }
 
+                            
+                            
+                         
 
                         </div>
                     </div>

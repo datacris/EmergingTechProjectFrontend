@@ -84,10 +84,18 @@ function SignIn(props) {
           password
         }
       }
-  
+
       console.log('-----------SignIn function')
       console.log(apiUrl)
-      const res = await Axios.post(apiUrl, loginData);
+
+
+
+      const res = await Axios.post(apiUrl, loginData, {
+        mode: 'same-origin',
+        redirect: 'follow',
+        credentials: 'include', // Don't forget to specify this if you need cookies
+      });
+      
       //process the response
       if (res.data.status === 'success') {
         props.history.push('/home')

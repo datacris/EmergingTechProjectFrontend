@@ -3,8 +3,10 @@ import Axios from "axios";
 export const initialState = {
   user: null,
   // endpoint_API: 'https://cristian-zuluaga-emerging-tech-final-project.netlify.app',
+  // endpoint_API: 'https://datacris-emerging-mern-project.herokuapp.com',
   endpoint_API: 'http://localhost:3000',
 };
+
 
 //***************************************** */
 //Use promises to get user info in the cookie

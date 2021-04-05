@@ -26,6 +26,7 @@ import StarsIcon from '@material-ui/icons/Stars';
 import PlaylistAddCheckIcon from '@material-ui/icons/PlaylistAddCheck';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import { useStateValue } from '../providers/StateProvider';
 
 import './Styles.css'
 
@@ -36,12 +37,16 @@ function Dashboard(props) {
 
   const [unansweredAlerts, setUnansweredAlerts] = useState([]);
 
+  const [{ endpoint_API }] = useStateValue();
+  const apiUrl = endpoint_API;
+
   useEffect(() => {
 
     //Reads the cookie to get user info
     const readCookie = async (props) => {
       try {
-        const res = await Axios.get('/read_cookie');
+        console.log('----------------------------------------DASHBOARD   '+apiUrl+'/read_cookie')
+        const res = await Axios.get(apiUrl+'/read_cookie');
         if (res.data.userEmail !== '') {
           setUserEmail(res.data.userEmail);
           setUserRole(res.data.userRole);
