@@ -9,6 +9,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { readCookie } from '../../providers/reducer';
 import MotivationalMessageCard from './MotivationalMessageCard';
 import CardColumns from 'react-bootstrap/CardColumns';
+import Particles from '../Particles';
 
 function MotivationalMessagesList(props) {
 
@@ -61,6 +62,7 @@ function MotivationalMessagesList(props) {
     return (
         <div>
             < Dashboard title='Motivational Messages' />
+            <Particles />
 
             <div className="container container__custom">
 

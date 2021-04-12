@@ -7,6 +7,7 @@ import { Button } from '@material-ui/core';
 import { useStateValue } from '../../providers/StateProvider';
 import Axios from 'axios';
 import HealingIcon from '@material-ui/icons/Healing';
+import Particles from '../Particles';
 
 function ListPatients(props) {
 
@@ -39,6 +40,7 @@ function ListPatients(props) {
     return (
         <div>
             < Dashboard title='Patient list' />
+            <Particles />
 
             <div className="container container__custom">
 

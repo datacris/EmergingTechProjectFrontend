@@ -8,6 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import {  Typography } from '@material-ui/core';
 
 import EmergencyAlert from './EmergencyAlert';
+import Particles from '../Particles';
 
 function EmergencyAlertList(props) {
     
@@ -46,6 +47,7 @@ function EmergencyAlertList(props) {
     return (
         <div>
             < Dashboard title='Emergency Alerts' />
+            <Particles />
 
             <div className="container container__custom">
 

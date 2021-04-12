@@ -17,6 +17,7 @@
     "react-dom": "^16.14.0",
     "react-flip-move": "^3.0.4",
     "react-moment": "^1.1.1",
+    "react-particles-js": "^3.4.1",
     "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",

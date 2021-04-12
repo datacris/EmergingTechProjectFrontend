@@ -26,12 +26,7 @@ toast.configure();
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Cristian Zuluaga
-        </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
+            <p> Copyright ©.   Cristian Zuluaga  {new Date().getFullYear()} </p>
         </Typography>
     );
 }

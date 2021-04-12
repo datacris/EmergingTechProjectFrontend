@@ -12,6 +12,7 @@ import ListIcon from '@material-ui/icons/List';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useStateValue } from '../../providers/StateProvider';
+import Particles from '../Particles';
 toast.configure();
 
 function CreateVitalSigns(props) {
@@ -119,6 +120,7 @@ function CreateVitalSigns(props) {
     return (
         <div>
             < Dashboard title='Register Vital Signs' />
+            <Particles />
 
             <div className="container container__custom">
                 <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">

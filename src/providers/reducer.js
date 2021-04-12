@@ -5,6 +5,7 @@ export const initialState = {
   // endpoint_API: 'https://cristian-zuluaga-emerging-tech-final-project.netlify.app',
   // endpoint_API: 'https://datacris-emerging-mern-project.herokuapp.com',
   endpoint_API: 'http://localhost:3000',
+  // "proxy": "http://localhost:5000/",
 };
 
 

@@ -21,12 +21,7 @@ toast.configure();
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Cristian Zuluaga
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      <p> Copyright ©.   Cristian Zuluaga  {new Date().getFullYear()} </p>
     </Typography>
   );
 }
@@ -93,9 +88,11 @@ function SignIn(props) {
       const res = await Axios.post(apiUrl, loginData, {
         mode: 'same-origin',
         redirect: 'follow',
-        credentials: 'include', // Don't forget to specify this if you need cookies
+        credentials: 'include' // Don't forget to specify this if you need cookies
       });
-      
+      console.log('after request')
+      console.log(res);
+
       //process the response
       if (res.data.status === 'success') {
         props.history.push('/home')

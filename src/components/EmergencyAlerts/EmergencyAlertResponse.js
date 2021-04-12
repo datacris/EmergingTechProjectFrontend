@@ -14,6 +14,7 @@ import Moment from 'react-moment';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { readCookie } from '../../providers/reducer';
+import Particles from '../Particles';
 toast.configure();
 
 function EmergencyAlertResponse(props) {
@@ -92,6 +93,7 @@ function EmergencyAlertResponse(props) {
     return (
         <div>
             < Dashboard title='Emergency Alert - Response' />
+            <Particles />
 
             <div className="container container__custom">
                 <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">

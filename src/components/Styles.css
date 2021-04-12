@@ -1,6 +1,7 @@
 .container__custom{
     padding: 30px !important;
     margin-top: 80px;
+    z-index: 200 !important;
 }
 .ckecklist_content__custom{
     justify-content: left !important;
@@ -120,4 +121,45 @@
 }
 .slider__custom > h1{
     margin-top: 110px;
+}
+.img__custom{
+    z-index: 1;
+    width: 230px;
+    justify-content: center;
+    margin-top: 150px;
+}
+.copy_right__custom{
+    margin-top: 100px !important;
+}
+.logo_home__custom{
+    position:absolute;
+    display: flex;
+    margin-top: -400px;
+    z-index: 100;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    
+}
+.slides_home__custom{
+    height: 120%;
+    width: 100%;
+    z-index: -1;
+    mask-image: linear-gradient(to top, transparent 10%, black 50%);
+    margin-bottom: 200px;
+    font-family: 'Open Sans', sans-serif;
+}
+.particles__custom{
+    right: 0;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+.card-img{
+    mask-image: linear-gradient(to top, transparent 10%, black 50%) !important;
 }

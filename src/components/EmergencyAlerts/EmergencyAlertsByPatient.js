@@ -8,6 +8,7 @@ import { Button, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import EmergencyAlert from './EmergencyAlert';
 import { readCookie } from '../../providers/reducer';
+import Particles from '../Particles';
 
 function EmergencyAlertsByPatient(props) {
 
@@ -72,6 +73,7 @@ function EmergencyAlertsByPatient(props) {
     return (
         <div>
             < Dashboard title='Emergency Alerts' />
+            <Particles />
 
             <div className="container container__custom">
 

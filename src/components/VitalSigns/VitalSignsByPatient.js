@@ -7,6 +7,7 @@ import Axios from 'axios';
 import Spinner from 'react-bootstrap/Spinner';
 import { Button, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import Particles from '../Particles';
 
 function VitalSignsByPatient(props) {
 
@@ -59,6 +60,7 @@ function VitalSignsByPatient(props) {
     return (
         <div>
             < Dashboard title='Vital Signs' />
+            <Particles />
 
             <div className="container container__custom">
 

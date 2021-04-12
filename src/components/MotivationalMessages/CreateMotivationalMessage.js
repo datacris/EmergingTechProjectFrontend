@@ -13,6 +13,7 @@ import ListIcon from '@material-ui/icons/List';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { readCookie } from '../../providers/reducer';
+import Particles from '../Particles';
 toast.configure();
 
 function CreateMotivationalMessage(props) {
@@ -95,6 +96,7 @@ function CreateMotivationalMessage(props) {
     return (
         <div>
             < Dashboard title='Create Motivational Message' />
+            <Particles />
 
             <div className="container container__custom">
                 <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">

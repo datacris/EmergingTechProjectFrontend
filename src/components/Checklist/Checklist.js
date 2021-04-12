@@ -9,6 +9,7 @@ import { toast } from 'react-toastify';
 import { makeStyles } from '@material-ui/core/styles';
 import Axios from 'axios';
 import { useStateValue } from '../../providers/StateProvider';
+import Particles from '../Particles';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -119,6 +120,7 @@ function Checklist(props) {
             </Backdrop>
 
             < Dashboard title='Checklist' />
+            <Particles />
             <div className="container container__custom">
 
                 <section className="jumbotron text-center bg-light p-5 rounded jumbotron__custom">
@@ -126,8 +128,8 @@ function Checklist(props) {
                     <div>
                         <div className="card mb-3 bg-light" >
                             <div className="row no-gutters">
-                                <div className="col-md-4">
-                                    <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img" alt="..." />
+                                <div className="col-md-4 image__custom">
+                                    <img className='image__custom' src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" class="card-img" alt="..." />
 
                                 </div>
                                 <div className="col-md-8">

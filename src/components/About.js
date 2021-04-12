@@ -3,6 +3,7 @@ import React, {  } from 'react';
 import './Styles.css'
 import Dashboard from './Dashboard';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import Particles from './Particles';
 
 function About(props) {
 
@@ -10,6 +11,7 @@ function About(props) {
     return (
         <div>
             < Dashboard title='About this app' />
+            <Particles />
 
             <div className="container container__custom">
 
