@@ -34,11 +34,11 @@ import './Styles.css'
 function Copyright() {
   return (
     <div className='copy_right__custom'>
-    <Typography  variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <br></br>
-      <p>        Cristian Zuluaga  {new Date().getFullYear()} </p>
-    </Typography>
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'Copyright © '}
+        <br></br>
+        <p>        Cristian Zuluaga  {new Date().getFullYear()} </p>
+      </Typography>
     </div>
   );
 }
@@ -214,14 +214,7 @@ function Dashboard(props) {
                   </ListItem>
                 </Link>
 
-                <Link>
-                  <ListItem button>
-                    <ListItemIcon>
-                      <BarChartIcon fontSize="large" />
-                    </ListItemIcon>
-                    <ListItemText primary="Checklist Reports" />
-                  </ListItem>
-                </Link>
+
 
 
               </div>
